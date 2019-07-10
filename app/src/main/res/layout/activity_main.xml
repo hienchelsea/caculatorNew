@@ -1,18 +1,401 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
+
+    <android.support.constraint.Guideline
+        android:id="@+id/gl1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.4" />
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/colorBlackDark">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="Calculator"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/tvScroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/container">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvCalculator"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginRight="16dp"
+                android:gravity="center|right"
+                android:minLines="4"
+                android:text="0"
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"></LinearLayout>
+        </LinearLayout>
+
+
+    </android.support.v4.widget.NestedScrollView>
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/tvResult"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginRight="16dp"
+        android:gravity="center|right"
+        android:text="0"
+        android:textColor="#e15300"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toTopOf="@id/gl1"
+        app:layout_constraintTop_toBottomOf="@id/tvScroll" />
 
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/gl1">
+
+        <android.support.constraint.Guideline
+            android:id="@+id/glv2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.75" />
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/container2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/glv2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <android.support.constraint.Guideline
+                android:id="@+id/glh2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.25" />
+
+            <android.support.constraint.Guideline
+                android:id="@+id/glh3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.5" />
+
+            <android.support.constraint.Guideline
+                android:id="@+id/glh4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.75" />
+
+            <android.support.constraint.Guideline
+                android:id="@+id/glv3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.66" />
+
+            <android.support.constraint.Guideline
+                android:id="@+id/glv4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.33" />
+
+            <TextView
+                android:id="@+id/tvNumber9"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@color/colorBlackDark"
+                android:gravity="center"
+                android:text="9"
+                android:textSize="25sp"
+                app:layout_constraintBottom_toTopOf="@+id/glh2"
+                app:layout_constraintEnd_toStartOf="@+id/glv4"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvNumber8"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@color/colorBlackDark"
+                android:gravity="center"
+                android:text="8"
+                android:textSize="25sp"
+                app:layout_constraintBottom_toTopOf="@+id/glh2"
+                app:layout_constraintEnd_toStartOf="@+id/glv3"
+                app:layout_constraintStart_toEndOf="@+id/glv4"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvNumber7"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@color/colorBlackDark"
+                android:gravity="center"
+                android:text="7"
+                android:textSize="25sp"
+                app:layout_constraintBottom_toTopOf="@+id/glh2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.49"
+                app:layout_constraintStart_toEndOf="@+id/glv3"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvNumber6"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@color/colorBlackDark"
+                android:gravity="center"
+                android:text="6"
+                android:textSize="25sp"
+                app:layout_constraintBottom_toTopOf="@+id/glh3"
+                app:layout_constraintEnd_toStartOf="@+id/glv4"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/glh2" />
+
+            <TextView
+                android:id="@+id/tvNumber5"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@color/colorBlackDark"
+                android:gravity="center"
+                android:text="5"
+                android:textSize="25sp"
+                app:layout_constraintBottom_toTopOf="@+id/glh3"
+                app:layout_constraintEnd_toStartOf="@+id/glv3"
+                app:layout_constraintStart_toEndOf="@+id/glv4"
+                app:layout_constraintTop_toBottomOf="@+id/glh2" />
+
+            <TextView
+                android:id="@+id/tvNumber4"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@color/colorBlackDark"
+                android:gravity="center"
+                android:text="4"
+                android:textSize="25sp"
+                app:layout_constraintBottom_toTopOf="@+id/glh3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/glv3"
+                app:layout_constraintTop_toBottomOf="@+id/glh2" />
+
+            <TextView
+                android:id="@+id/tvNumber3"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@color/colorBlackDark"
+                android:gravity="center"
+                android:text="3"
+                android:textSize="25sp"
+                app:layout_constraintBottom_toTopOf="@+id/glh4"
+                app:layout_constraintEnd_toStartOf="@+id/glv4"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/glh3" />
+
+            <TextView
+                android:id="@+id/tvNumber2"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@color/colorBlackDark"
+                android:gravity="center"
+                android:text="2"
+                android:textSize="25sp"
+                app:layout_constraintBottom_toTopOf="@+id/glh4"
+                app:layout_constraintEnd_toStartOf="@+id/glv3"
+                app:layout_constraintStart_toEndOf="@+id/glv4"
+                app:layout_constraintTop_toBottomOf="@+id/glh3" />
+
+            <TextView
+                android:id="@+id/tvNumber1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@color/colorBlackDark"
+                android:gravity="center"
+                android:text="1"
+                android:textSize="25sp"
+                app:layout_constraintBottom_toTopOf="@+id/glh4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/glv3"
+                app:layout_constraintTop_toBottomOf="@+id/glh3" />
+
+            <TextView
+                android:id="@+id/tvComma"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@color/colorBlackDark"
+                android:gravity="center"
+                android:text="."
+                android:textSize="25sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/glv4"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/glh4" />
+
+            <TextView
+                android:id="@+id/tvNumber0"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@color/colorBlackDark"
+                android:gravity="center"
+                android:text="0"
+                android:textSize="25sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/glv3"
+                app:layout_constraintStart_toEndOf="@+id/glv4"
+                app:layout_constraintTop_toBottomOf="@+id/glh4" />
+
+            <TextView
+                android:id="@+id/tvDelete"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@color/colorBlackDark"
+                android:gravity="center"
+                android:text="DEL"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/glv3"
+                app:layout_constraintTop_toBottomOf="@+id/glh4" />
+
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/colorBlackWhileDark"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/glv2"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <android.support.constraint.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.2" />
+
+            <android.support.constraint.Guideline
+                android:id="@+id/guideline2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.4" />
+
+            <android.support.constraint.Guideline
+                android:id="@+id/guideline3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.6" />
+
+            <android.support.constraint.Guideline
+                android:id="@+id/guideline4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.8" />
+
+
+            <TextView
+                android:id="@+id/tvDivision"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:text="÷"
+                android:textSize="25sp"
+                app:layout_constraintBottom_toTopOf="@+id/guideline"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvMultiply"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:text="x"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/guideline2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/guideline" />
+
+            <TextView
+                android:id="@+id/tvAdd"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:text="+"
+                android:textSize="25sp"
+                app:layout_constraintBottom_toTopOf="@+id/guideline3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/guideline2" />
+
+            <TextView
+                android:id="@+id/tvMinus"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:text="-"
+                android:textSize="25sp"
+                app:layout_constraintBottom_toTopOf="@+id/guideline4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/guideline3" />
+
+            <TextView
+                android:id="@+id/tvEqual"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@color/colorBlack"
+                android:gravity="center"
+                android:text="="
+                android:textSize="25sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/guideline4" />
+
+
+        </android.support.constraint.ConstraintLayout>
+
+        <View
+            android:layout_width="10dp"
+            android:layout_height="match_parent"
+            android:background="#e15300"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </android.support.constraint.ConstraintLayout>
 </android.support.constraint.ConstraintLayout>
